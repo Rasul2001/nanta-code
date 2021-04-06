@@ -11,40 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9b93c6c-a42f-497a-84d5-4c924082bbc0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/golang.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/golang.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/createHtml_css.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/createJava.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/createJavaScript.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/createKotlin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/createPhp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/createPython.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/createRuby.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/createWindows.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/html_css.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/javaScript.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/kotlin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/php.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/prosto.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/python.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ruby.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showHtml_css.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showJava.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showJavaScript.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showKotlin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showPhp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showPython.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showRuby.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showWindows.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -119,9 +86,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1617469874563" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1611601616563">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1617704859090">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1611601616563" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1617704859090" />
   </component>
 </project>
