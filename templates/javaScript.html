@@ -1,0 +1,194 @@
+{{define "javaScript"}}
+{{template "header"}}
+<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Добро пожаловать NANTA-javaScript</h1>
+        <p class="lead my-3">Здраствуйте вы можете посмотреть все варианты</p>
+        <p class="lead mb-0"><a href="/createJavaScript" class="text-white font-weight-bold">Создать статью</a></p>
+    </div>
+</div>
+<div class="row mb-2">
+    <!--Блоки-->
+    {{ range. }}
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">Программирование на javaScript</strong>
+                <h3 class="mb-0">{{.Title}}</h3>
+                <div class="mb-1 text-muted">11 января</div>
+                <p class="mb-auto">{{.Anons}}</p>
+                <a href="/post/javaScript/{{ .Id }}" class="stretched-link">Продолжить чтение</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                     aria-label="Placeholder:C++ windows" preserveAspectRatio="xMidYMid slice" role="img"
+                     focusable="false"><title>Nanta javaScript</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em"><p>javaScript</p></text>
+                </svg>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <p class="lead">Статей нет</p>
+    {{end}}
+</div>
+<div class="col-md-6">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success">Программирование на javaScript</strong>
+            <h3 class="mb-0"> javaScript</h3>
+            <div class="mb-1 text-muted">22 марта</div>
+            <p class="mb-auto">Программа 1.1. срC: копирование файлов с использованием библиотеки
+                С</p>
+            <a href="/javaScript" class="stretched-link">Продолжить чтение</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">javaScript</text>
+            </svg>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 font-italic border-bottom">Программирование на среде Windows</h3>
+            <div class="blog-post">
+                <h2 class="blog-post-title">Копирование файлов с использованием стандартной
+                    библиотеки С</h2>
+                <p class="blog-post-meta">1 июня 2014 <a href="#">Побегайло</a></p>
+
+                <p>Программа 1.1. срC: копирование файлов с использованием библиотеки
+                    С.</p>
+                <hr>
+                <p>Этот простой пример может служить наглядной иллюстрацией ряда
+                    общепринятых допущений и соглашений программирования, которые не
+                    всегда применяются в Windows.
+                    1. Объекты открытых файлов идентифицируются указателями на
+                    структуры FILE (в UNIX используются целочисленные дескрипторы
+                    файлов). Указателю NULL соответствует несуществующий объект. По сути,
+                    указатели являются разновидностью дескрипторов объектов открытых
+                    файлов.
+                </p>
+                <blockquote><p>
+                    <strong>2. В вызове функции fopen указывается, каким образом должен
+                        обрабатываться файл — как текстовый или как двоичный. В текстовых
+                        файлах содержатся специфические для каждой системы
+                        последовательности символов, используемых, например, для обозначения
+                        конца строки. Во многих системах, включая Windows, в процессе
+                        выполнения операций ввода/вывода каждая из таких последовательностей
+                        автоматически преобразуется в нулевой символ, который интерпретируется
+                        в языке С как метка конца строки, и наоборот. В нашем примере оба файла
+                        открываются как двоичные.</strong></p>
+                </blockquote>
+                <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span
+                        class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">MyFirstJavaProgram</span><span
+                        class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">#include <stdio.h>
+#include <errno.h>
+#define BUF_SIZE 256
+int main(int argc, char *argv[]) {
+FILE *in_file, *out_file;
+char rec [BUF_SIZE];
+size_t bytes_in, bytes_out;
+if (argc != 3) {
+printf("Использование: срС файл1 файл2\n");
+return 1;
+}
+in_file = fopen(argv [1], "rb");
+if (in_file == NULL) {
+perror(argv[1]);
+return 2;
+}
+out_file = fopen(argv [2], "wb");
+if (out_file == NULL) {
+perror(argv [2]);
+return 3;
+}
+/* Обработать входной файл по одной записи за один раз. */
+while ((bytes_in = fread(rec, 1, BUF_SIZE, in_file)) > 0) {
+bytes_out = fwrite(rec, 1, bytes_in, out_file);
+if (bytes_out != bytes_in) {
+perror("Неустранимая ошибка записи.");
+return 4;
+}
+}
+fclose (in_file);
+fclose (out_file);
+return 0;
+}</span></pre>
+                <p><br>3. Диагностика ошибок реализуется с помощью функции perror,
+                    которая, в свою очередь, получает информацию относительно природы
+                    сбоя, возникающего при вызове функции fopen, из глобальной переменной
+                    errno. Вместо этого можно было бы воспользоваться функцией ferror,
+                    возвращающей код ошибки, ассоциированный не с системой, а с объектом
+                    FILE.<br>4. Функции fread и fwrite возвращают количество обработанных
+                    байтов непосредственно, а не через аргумент, что оказывает существенное
+                    влияние на логику организации программы. Неотрицательное
+                    возвращаемое значение говорит об успешном выполнении операции
+                    чтения, тогда как нулевое — о попытке чтения метки конца файла.
+                    <br>5. Функция fclose может применяться лишь к объектам типа FILE
+                    (аналогичное утверждение справедливо и в отношении дескрипторов
+                    файлов UNIX).
+                    <br>6. Операции ввода/вывода осуществляются в синхронном режиме, то
+                    есть прежде чем программа сможет выполняться дальше, она должна
+                    дождаться завершения операции ввода/вывода.
+                    <br>7. Для вывода сообщений об ошибках удобно использовать входящую
+                    в библиотеку С функцию ввода/вывода printf, которая даже будет
+                    использована в первом примере Windows-программы.
+                    Преимуществом реализации, использующей библиотеку С, является ее
+                    переносимость на платформы UNIX, Windows, а также другие системы,
+                    которые поддерживают стандарт ANSI С. Кроме того, как показано в
+                    приложении В, в том, что касается производительности, вариант,
+                    использующий функции ввода/вывода библиотеки С, ничуть не уступает
+                    другим вариантам реализации. Тем не менее, в этом случае программы
+                    вынуждены ограничиваться синхронными операциями ввода/вывода, хотя
+                    влияние этого ограничения будет несколько ослаблено использованием
+                    потоков Windows (начиная с главы 7).
+                    Как и их эквиваленты в UNIX, программы, основанные на функциях
+                    для работы с файлами, входящих в библиотеку С, способны выполнять
+                    операции произвольного доступа к файлам (с использованием функции
+                    fseek или, в случае текстовых файлов, функций fsetpos и fgetpos), но это
+                    является уже потолком сложности для функций ввода/вывода стандартной
+                    библиотеки С, выше которого они подняться не могут. Вместе с тем, Visual
+                    C++ предоставляет нестандартные расширения, способные, например,
+                    поддерживать блокирование файлов. Наконец, библиотека С не позволяет
+                    управлять средствами защиты файлов.
+                    Резюмируя, можно сделать вывод, что если простой синхронный
+                    файловый или консольный ввод/вывод — это все, что вам надо, то для
+                    написания переносимых программ, которые будут выполняться под
+                    управлением Windows, следует использовать библиотеку С.</p>
+
+            </div><!-- /.blog-post -->
+        </div>
+        <aside class="col-md-4">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="font-italic">Программирование на JavaScript</h4>
+                <p class="mb-0">Автор информации<em> Современный JavaScript для нетерпеливых<em>Кэй С.Хорстман</p>
+            </div>
+            <div class="p-4">
+
+                <h4 class="font-italic">Все примеры</h4>
+
+                <ol class="list-unstyled mb-0">
+                    {{ range. }}
+                    <li><a href="/post/{{ .Id }}">{{.Title}}</a></li>
+                    {{else}}
+                    <p class="lead">Статей нет</p>
+                    {{end}}
+                </ol>
+            </div>
+
+        </aside>
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->S
+{{template "footer"}}
+{{end}}

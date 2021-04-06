@@ -1,0 +1,46 @@
+{{define "showWindows"}}
+{{template "header"}}
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 font-italic border-bottom">{{.Title}}</h3>
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{.Anons}}</h2>
+                <!--
+                <p class="blog-post-meta">1 июня 2014 <a href="#">Марк</a></p>--->
+                <p></p>
+                <hr>
+                <p>{{.Description}}</p>
+                <blockquote>
+        <pre class="prettyprint notranslate prettyprinted" style="">
+            <span class="kwd">{{.FullText}}</span><span class="pln"> </span>
+        </pre>
+                </blockquote>
+            </div><!-- /.blog-post -->
+            <!-- /.blog-post
+
+            <nav class="blog-pagination">
+                <a  href="/post/{{.Id }}" class="btn btn-outline-primary">Предыдущие</a>
+                <a href="/post/{{.Id }}" class="btn btn-outline-primary" tabindex="-1"
+                   aria-disabled="true">Следующие</a>
+            </nav>
+-->
+
+        </div>
+
+        <aside class="col-md-4">
+            <div class="p-4 mb-3 bg-light rounded">
+               <h4 class="font-italic">Системное программирование C++ в среде Windows</h4>
+                <p class="mb-0">Автор информации<em> Программирование на  C++</em> Джонсон М. Харт</p>
+            </div>
+
+
+        </aside>
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+
+{{template "footer"}}
+{{end}}

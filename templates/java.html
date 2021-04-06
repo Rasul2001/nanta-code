@@ -1,0 +1,129 @@
+{{define "java"}}
+{{template "header"}}
+<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Добро пожаловать NANTA-Java</h1>
+        <p class="lead my-3">Здраствуйте вы можете посмотреть все варианты</p>
+        <p class="lead mb-0"><a href="/createJava" class="text-white font-weight-bold">Создать статью</a></p>
+    </div>
+</div>
+<div class="row mb-2">
+    <!--Блоки-->
+    {{ range. }}
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">Программирование на Java</strong>
+                <h3 class="mb-0">{{.Title}}</h3>
+                <div class="mb-1 text-muted">11 января</div>
+                <p class="mb-auto">{{.Anons}}</p>
+                <a href="/post/java/{{ .Id }}" class="stretched-link">Продолжить чтение</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                     aria-label="Placeholder:C++ windows" preserveAspectRatio="xMidYMid slice" role="img"
+                     focusable="false"><title>Nanta Java</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em"><p>Java</p></text>
+                </svg>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <p class="lead">Статей нет</p>
+    {{end}}
+</div>
+<div class="col-md-6">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success">Программирование на Java</strong>
+            <h3 class="mb-0"> Java</h3>
+            <div class="mb-1 text-muted">11 февраля</div>
+            <p class="mb-auto">Пример: сервлет без поддержки внутреннего состояния
+                С</p>
+            <a href="/java" class="stretched-link">Продолжить чтение</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+                <title></title>
+                <rect width="100%" height="100%" fill="#55595c"></rect>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Java</text>
+            </svg>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 font-italic border-bottom">Атомарность</h3>
+            <div class="blog-post">
+                <h2 class="blog-post-title">Сервлет без поддержки внутреннего состояния</h2>
+               <!-- <p class="blog-post-meta">1 июня 2014 <a href="#">Побегайло</a></p> -->
+
+                <p>Листинг 2.2. Сервлет, подсчитывающий запросы без необходимой синхронизации.</p>
+                <hr>
+                <p>Что происходит при добавлении элемента состояния в объект без поддержки внутреннего состояния? Предположим,
+                    мы хотим добавить счетчик посещений, который измеряет число обработанных запросов.
+                </p>
+                <blockquote><p>
+                    <strong>Можно добавить в сервлет поле с типом long и приращивать его при каждом запросе, как показано в UnsafeCountingFactorizer в листинге 2.2..</strong></p>
+                </blockquote>
+                <pre class="prettyprint notranslate prettyprinted" style=""><span>
+        </span><span class="kwd">
+@NotThreadSafe
+public class UnsafeCountingFactorizer implements Servlet {
+private long count = 0;
+public long getCount() { return count; }
+public void service(ServletRequest req, ServletResponse resp) {
+BigInteger i = extractFromRequest(req);
+BigInteger[] factors = factor(i);
+++count;
+encodeIntoResponse(resp, factors);
+}
+}
+
+}</span></pre>
+                <p><br>К сожалению, класс UnsafeCountingFactorizer не является потокобезопасным, даже если отлично работает в однопоточной среде.
+                    <br>Так же, как UnsafeSequence, он предрасположен к потерянным обновлениям (lost updates). Хотя операция приращения
+                   ++count имеет компактный синтаксис, она не является атомарной (atomic), то есть неделимой, а представляет собой последовательность
+                    <br>из трех операций: доставки текущего значения, прибавления к нему единицы и записи нового значения обратно.
+                   В операциях «прочитать, изменить, записать» результирующее состояние является производным от предыдущего.
+                <br>На рис. 1.1 показано, что может произойти, если два потока попытаются увеличить счетчик одновременно, без синхронизации.
+                    Если счетчик равен 9, то из‑за неудачной временной координации оба потока увидят значение 9, добавят в него единицу,
+                   <br> и установят значение 10. Так счетчик посещений начнет отставать на единицу.
+                 Вы можете подумать, что наличие немного неточного счетчика посещений в веб‑службе является приемлемой потерей, и иногда это так.
+                    Но если счетчик используется для создания последовательностей или уникальных идентификаторов объектов,
+                   <br> то возвращение одного и того же значения из многочисленных активаций может привести к серьезным проблемам целостности
+                    данных1.
+                   <br> Возможность появления неправильных результатов из-за неудачной временнˆой координации возникает при состоянии гонки.</p>
+
+            </div><!-- /.blog-post -->
+        </div>
+        <aside class="col-md-4">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="font-italic">Программирование на Java</h4>
+                <p class="mb-0">Автор информации<em> Программирование на Java</em>Брайан Гетц,Тим Пайерлс,Джошуа Блох,<br>джозеф Боубер,дэвид Холмс,Даг Ли</p>
+            </div>
+            <div class="p-4">
+
+                <h4 class="font-italic">Все примеры</h4>
+
+                <ol class="list-unstyled mb-0">
+                    {{ range. }}
+                    <li><a href="/post/{{ .Id }}">{{.Title}}</a></li>
+                    {{else}}
+                    <p class="lead">Статей нет</p>
+                    {{end}}
+                </ol>
+            </div>
+
+        </aside>
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->S
+{{template "footer"}}
+{{end}}
