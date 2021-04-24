@@ -5,8 +5,9 @@ import (
    "html/template"
    "github.com/gorilla/mux"
    "database/sql"
-   _ "github.com/go-sql-driver/mysql"
+  _ "github.com/go-sql-driver/mysql"
 )
+import "github.com/go-martini/martini"
 type Article struct{
    Id uint16
    Title,Anons,FullText,Description string
@@ -82,7 +83,7 @@ func windows(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nantacod_nanta" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
    if err!=nil{
       panic(err)
    }
@@ -109,7 +110,7 @@ func python(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-   db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
    if err!=nil{
       panic(err)
    }
@@ -136,7 +137,7 @@ func java(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nantacod_nanta" )
+    db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
    if err!=nil{
       panic(err)
    }
@@ -163,7 +164,7 @@ func kotlin(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-    db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
    if err!=nil{
       panic(err)
    }
@@ -190,7 +191,7 @@ func html_css(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
- db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
    if err!=nil{
       panic(err)
    }
@@ -217,7 +218,7 @@ func javaScript(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-    db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
    if err!=nil{
       panic(err)
    }
@@ -244,7 +245,7 @@ func php(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-   db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
    if err!=nil{
       panic(err)
    }
@@ -271,7 +272,7 @@ func ruby(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-   db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
    if err!=nil{
       panic(err)
    }
@@ -302,7 +303,7 @@ func save_articleWindows(w http.ResponseWriter,r *http.Request){
    if title== "" || anons=="" || full_text=="" || description==""{
        fmt.Fprintf(w,"Не все данные заполнены")
    }else{
-      db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -326,7 +327,7 @@ func save_articlePython(w http.ResponseWriter,r *http.Request){
    if title== "" || anons=="" || full_text=="" || description==""{
        fmt.Fprintf(w,"Не все данные заполнены")
    }else{
-       db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -350,7 +351,7 @@ func save_articleJava(w http.ResponseWriter,r *http.Request){
    if title== "" || anons=="" || full_text=="" || description==""{
        fmt.Fprintf(w,"Не все данные заполнены")
    }else{
-       db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -374,7 +375,7 @@ func save_articleKotlin(w http.ResponseWriter,r *http.Request){
    if title== "" || anons=="" || full_text=="" || description==""{
        fmt.Fprintf(w,"Не все данные заполнены")
    }else{
-       db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -398,7 +399,7 @@ func save_articleHtml_css(w http.ResponseWriter,r *http.Request){
    if title== "" || anons=="" || full_text=="" || description==""{
        fmt.Fprintf(w,"Не все данные заполнены")
    }else{
-      db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nantacod_nanta" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -422,7 +423,7 @@ func save_articleJavaScript(w http.ResponseWriter,r *http.Request){
    if title== "" || anons=="" || full_text=="" || description==""{
        fmt.Fprintf(w,"Не все данные заполнены")
    }else{
-    db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -446,7 +447,7 @@ func save_articlePhp(w http.ResponseWriter,r *http.Request){
    if title== "" || anons=="" || full_text=="" || description==""{
        fmt.Fprintf(w,"Не все данные заполнены")
    }else{
-      db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -470,7 +471,7 @@ func save_articleRuby(w http.ResponseWriter,r *http.Request){
    if title== "" || anons=="" || full_text=="" || description==""{
        fmt.Fprintf(w,"Не все данные заполнены")
    }else{
-       db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -491,7 +492,7 @@ func show_post(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
- db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+    db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -521,7 +522,7 @@ func show_post_Python(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-    db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -550,7 +551,7 @@ func show_post_Java(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-   db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -579,7 +580,7 @@ func show_post_Kotlin(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
- db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -608,7 +609,7 @@ func show_post_Html_css(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-  db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -637,7 +638,7 @@ func show_post_JavaScript(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-    db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -666,7 +667,7 @@ func show_post_php(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-    db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -695,7 +696,7 @@ func show_post_ruby(w http.ResponseWriter,r *http.Request){
    if err!=nil{
       fmt.Fprintf(w,err.Error())
    }
-    db ,err:= sql.Open("nantacod.mysql.tools","nantacod_rasul:K%r;c578Ty@tcp(127.0.0.1:3306)/nantacod_rasul" )
+   db ,err:= sql.Open("mysql","root:root@tcp(127.0.0.1:3306)/nanta-code" )
       if err!=nil{
          panic(err)
       }
@@ -759,4 +760,9 @@ func handleFunc(){
 }
 func main(){
    handleFunc()
+   m := martini.Classic()
+	m.Get("/", func() string {
+		return "Hello World"
+	})
+	m.Run()
 }
