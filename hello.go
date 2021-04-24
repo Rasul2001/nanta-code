@@ -1,6 +1,9 @@
 package main
 import (
+   "io"
+   "log"
    "fmt"
+   "os"
    "net/http"
    "html/template"
    "github.com/gorilla/mux"
@@ -760,9 +763,7 @@ func handleFunc(){
 }
 func main(){
    handleFunc()
-   m := martini.Classic()
-	m.Get("/", func() string {
-		return "Hello World"
-	})
-	m.Run()
+   port:=os.Getenv("PORT")
+   log.Print("listening on:"+port)
+   log.Fatal(http.ListenAndServe(":"+port,nil)
 }
