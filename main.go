@@ -6,11 +6,6 @@ import (
    "github.com/gorilla/mux"
    "database/sql"
   _ "github.com/go-sql-driver/mysql"
-    "os"
-	"path"
-
-	"github.com/joho/godotenv"
-	"github.com/labstack/echo"
 )
 type Article struct{
    Id uint16
